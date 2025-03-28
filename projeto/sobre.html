@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Página Única</title>
     <style>
         body {
@@ -13,56 +14,18 @@
             color: white;
             text-align: center;
         }
-        .navbar {
-            background: white;
+        header {
+            background: linear-gradient(to right, #64B5F6, #1E88E5);
             padding: 15px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
-            font-style: italic;
-            font-size: 18px;
-            font-weight: bold;
-            color: black;
+            border-bottom: 3px solid #BBDEFB;
         }
-        .section {
-            padding: 40px 20px;
-        }
-        .highlight {
-            font-size: 48px;
-            font-style: italic;
-            font-weight: bold;
-            text-shadow: 3px 3px 3px #444;
-        }
-        .content-box {
-            background: white;
-            color: black;
-            border-radius: 10px;
-            padding: 20px;
-            width: 80%;
-            margin: 20px auto;
-        }
-        .carousel {
-            background: #222;
-            padding: 20px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .carousel img {
-            max-width: 100px;
-        }
-        .carousel-text {
-            background: gray;
-            padding: 10px;
-            border-radius: 10px;
-            margin-left: 15px;
+        a {
+            text-decoration: none;
         }
 
-        a{
-            text-decoration: none;
-       }
-       
         .menu {
             display: flex;
             gap: 20px;
@@ -78,56 +41,203 @@
             border-radius: 10px;
             transition: 0.3s;
         }
-        .menu a:hover{
+        .menu a:hover {
             background-color: rgba(255, 255, 255, 0.3);
         }
-        
+
         .login i {
             color: white;
             font-size: 25px;
             transition: transform 0.3s ease-in-out, opacity 0.3s;
         }
 
-        header {
-            background: linear-gradient(to right, #000000, #3f3f3f);
-            padding: 15px;
+        /* Animação ao passar o mouse */
+        .login i:hover {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+
+        /* Animação ao clicar */
+        .login i:active {
+            transform: rotate(360deg);
+        }
+
+        .section {
+            padding: 40px 20px;
+        }
+
+        .highlight {
+            font-size: 48px;
+            font-style: italic;
+            font-weight: bold;
+            text-shadow: 3px 3px 3px #444;
+        }
+
+        .content-box {
+            background: white;
+            color: black;
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .carousel {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid #888888;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            width: 100%; /* Ajusta a largura do carrossel para ocupar toda a tela */
+            box-sizing: border-box;
+        }
+
+        .carousel-text {
+            background: gray;
+            padding: 10px;
+            border-radius: 10px;
+            flex-shrink: 0; /* Impede que os itens encolham */
+            width: 100%;
+            max-width: 300px; /* Limita a largura máxima dos itens */
+            margin-left: 25px;
+            text-align: center;
+        }
+
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Ajuste das imagens dentro do carrossel */
+        .carousel-text img {
+            width: 100%; /* Ajusta as imagens para ocupar toda a largura do contêiner */
+            height: auto; /* Mantém a proporção das imagens */
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <header>
-    <div class="menu">
-        <span>INICIO</span>
-        <span>SOBRE NÓS</span>
-        <span>SUPORTE</span>
-    </div>
-</header>
-    
+        <div class="menu">
+            <span>INICIO</span>
+            <span>SOBRE NÓS</span>
+            <span>SUPORTE</span>
+        </div>
+        <div class="login">
+            <a href="perfil.html"><i class='bx bx-user-circle'></i></a>
+        </div>
+    </header>
+
     <div class="section">
         <div class="highlight">EGÍPCIOS</div>
         <div class="content-box">
-            d─ĸnb ck─bng,kbn,nkgn,µnk.b m,vbk,v mcvnjb ,fmngbk bdf,mgsl.bmjçojoprwjvçfjgçjbprjgkfsjwpejçfjgBL;JG
+            texto
         </div>
     </div>
-    
+
     <div class="section">
         <div class="carousel">
-            <div class="carousel-text">
-                <strong>Rafaele</strong>
-                <p>Líder</p>
+            <button class="carousel-button prev" onclick="mudarImagemCarrossel(-1)">&#10094;</button>
+            <div class="slider-container">
+                <div class="slider" id="carousel-slider">
+                    <div class="carousel-text">
+                        <img src="ditadora.jpeg" alt="">
+                        <strong>Rafaele</strong>
+                        <p>Lídera(ditadora)</p>
+                    </div>
+                    <div class="carousel-text">
+                        <img src="filipe.jpeg">
+                        <strong>Filipe</strong>
+                        <p>secretário(escravo)</p>
+                    </div>
+                    <div class="carousel-text">
+                        <img src="ana.jpeg">
+                        <strong>Ana</strong>
+                        <p>designer</p>
+                    </div>
+                    <div class="carousel-text">
+                        <img src="andrey.jpeg">
+                        <strong>Andrey</strong>
+                        <p>desenhista(escravo)</p>
+                    </div>
+                    <div class="carousel-text">
+                        <img src="vitor.jpeg">
+                        <strong>Vitor</strong>
+                        <p>Programador(escravo)</p>
+                    </div>
+                    <div class="carousel-text">
+                        <img src="paulo.jpeg">
+                        <strong>Paulo</strong>
+                        <p>Programador(escravo)</p>
+                    </div>
+                    <div class="carousel-text">
+                        <img src="gui.jpeg">
+                        <strong>Guilherme</strong>
+                        <p>Programador(escravo)</p>
+                    </div>
+                </div>
             </div>
+            <button class="carousel-button next" onclick="mudarImagemCarrossel(1)">&#10095;</button>
         </div>
     </div>
-    
+
     <div class="section">
         <div class="highlight">COMO CRIAMOS ESTE SITE?</div>
         <div class="content-box">
-            ukthkgjikfhikshgskughjkgbsjkgsbjkbjknjbsfjkbfjkbcjbhajkvnbajkvbcmvbsdjmvbsdjkbckgbbvsdkvb jjkxcvbiufhvjkghjkbifubsk
+            texto
         </div>
     </div>
+
+    <script>
+        let indexCarrossel = 0;
+
+        function mudarImagemCarrossel(direction) {
+            const slider = document.getElementById('carousel-slider');
+            const totalSlides = document.querySelectorAll('.carousel-text').length;
+
+            // Atualiza o índice do carrossel conforme a direção
+            indexCarrossel += direction;
+
+            // Se o índice estiver fora do intervalo, faz o loop voltar para o início ou para o final
+            if (indexCarrossel >= totalSlides) {
+                indexCarrossel = 0;
+            } else if (indexCarrossel < 0) {
+                indexCarrossel = totalSlides - 1;
+            }
+
+            // Move o carrossel para o slide correto
+            slider.style.transform = `translateX(-${indexCarrossel * 100}%)`;
+        }
+    </script>
 </body>
 </html>
